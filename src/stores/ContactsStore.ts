@@ -22,7 +22,7 @@ export class ContactsStore {
   public getContacts() {
     let contactsArray = this.getContactsWithLocalStorage();
     if (!contactsArray) {
-      fetch('http://demo.sibers.com/users')
+      fetch('//demo.sibers.com/users')
         .then(res => res.json())
         .then(res => {
           this.contacts = res;
