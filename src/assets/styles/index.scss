@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Hind+Madurai:300,400,600,700|Raleway:300,400,600,700|Ubuntu:300,400,500,700');
+
+@import 'vars';
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $primaryFont;
+  color: $secondaryTextColor;
+}
+
+a {
+  text-decoration: none;
+  transition: all .3s ease;
+
+  &:hover {
+    color: $accentColor;
+  }
+}
+
+.container {
+  width: 1270px;
+  margin: 0 auto;
+}
+
+@import 'header';
+@import 'contacts';
