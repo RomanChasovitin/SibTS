@@ -4,8 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     &-favorite {
-      color: $secondaryTextColor;
       font-size: 15px;
       line-height: 1;
       display: block;
@@ -16,19 +16,19 @@
       background-position: 0 center;
       margin-right: 20px;
       cursor: pointer;
+
       &--active {
-        color: $accentTextColor;
         font-weight: 600;
       }
     }
+
     &-sort {
       &-item {
         display: inline-block;
-        color: $secondaryTextColor;
         font-size: 16px;
         line-height: 1;
         padding: 0 10px;
-        border-right: 1px solid $secondaryTextColor;
+        border-right: 1px solid var(--contentColor);
 
         &:last-child {
           border-right: none;
@@ -37,7 +37,7 @@
         cursor: pointer;
 
         &--active {
-          color: $accentTextColor;
+          color: var(--accentTextColor);
         }
       }
     }
@@ -45,16 +45,22 @@
     &-search {
       display: flex;
       align-items: center;
+
       &-field {
         box-sizing: border-box;
         padding: 5px 15px;
         line-height: 1;
         border: none;
-        border-bottom: 1px solid $darkColor;
+        border-bottom: 1px solid var(--contentColor);
         font-size: 16px;
         font-family: $primaryFont;
         outline: none;
-        transition: all 0.3s ease;
+        transition: border-color 0.3s ease;
+        background-color: var(--contentBackground);
+
+        &::placeholder {
+          color: var(--contentColor);
+        }
 
         &:focus {
           border-color: $accentColor;
@@ -73,19 +79,20 @@
 
   &__item {
     position: relative;
-    flex-basis: calc(33.3% - 7px * 3);
+    flex-basis: calc(25% - 7px * 3);
     flex-shrink: 0;
     flex-grow: 1;
     height: 300px;
     box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(var(--shadowColor), .35);
     margin: 0 10px 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     padding: 20px;
     cursor: pointer;
+    color: var(--contentColor);
     transition: all 0.25s ease-in;
 
     &:hover {
-      box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.2);
+      box-shadow: 1px 3px 4px rgba(var(--shadowColor), 0.2);
     }
 
     &-favorite {
@@ -99,6 +106,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+
       &--active {
         background-image: url(../images/star--filled.svg);
       }

@@ -2,25 +2,47 @@
 
 @import 'vars';
 
+.App {
+  &--light {
+    --headerBackground: #3949ab;
+    --headerTextColor: #fff;
+    --contentBackground: #fff;
+    --contentColor: #202020;
+    --shadowColor: 32, 32, 32;
+    --accentTextColor: #3949ab;
+  }
+
+  &--dark {
+    --headerBackground: #bf360c;
+    --headerTextColor: #202020;
+    --contentBackground: #202020;
+    --contentColor: #fff;
+    --shadowColor: 230, 230, 230;
+    --accentTextColor: #bf360c;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   font-family: $primaryFont;
-  color: $secondaryTextColor;
+  color: var(--contentColor);
 }
 
 a {
   text-decoration: none;
-  transition: all .3s ease;
 
   &:hover {
-    color: $accentColor;
+    color: var(--accentTextColor);
   }
 }
 
 .container {
+  padding: 0 calc((100vw - 1285px) / 2);
   width: 1270px;
-  margin: 0 auto;
+  box-sizing: content-box;
+  background-color: var(--contentBackground);
+  color: var(--contentColor);
 }
 
 @import 'header';

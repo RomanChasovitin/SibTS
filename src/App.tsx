@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import Routes from './routes';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Header from './components/Header';
 import { Provider } from 'mobx-react';
 import { autorun } from 'mobx';
 import { ContactsStore } from './stores/ContactsStore';
+import { ThemeStore } from './stores/ThemeStore';
+import Template from './components/Template';
 
 const contactsStore = new ContactsStore();
+const themeStore = new ThemeStore();
 
 autorun(() => {
   contactsStore.getContacts();
@@ -15,18 +15,9 @@ autorun(() => {
 class App extends Component {
   render() {
     return (
-      <div className='App'>
-        <Provider contactsStore={contactsStore}>
-          <Fragment>
-            <Header />
-            <Router>
-              <Fragment>
-                <Routes />
-              </Fragment>
-            </Router>
-          </Fragment>
-        </Provider>
-      </div>
+      <Provider contactsStore={contactsStore} themeStore={themeStore}>
+        <Template />
+      </Provider>
     );
   }
 }
